@@ -1,0 +1,1126 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>糖心影院-热门影视推荐_最新剧集与观看指南</title>
+    <meta name="description" content="糖心影院专注影视内容聚合与推荐，提供热门电影、剧集、短剧的最新动态、深度解析、分类筛选与观看指南。发现高分作品、追踪更新节奏，找到适合你的下一部好片。">
+    <meta name="keywords" content="糖心影院,影视推荐,热门剧集,最新电影,观看指南">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%234a6fa5'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif'%3E糖%3C/text%3E%3C/svg%3E">
+    <style>
+        :root {
+            --bg: #f7f9fc;
+            --surface: #ffffff;
+            --primary: #4a6fa5;
+            --primary-light: #e8eef7;
+            --accent: #e07a5f;
+            --text: #1f2a3a;
+            --text-secondary: #5b6b7c;
+            --border: #e2e8f0;
+            --radius: 12px;
+            --shadow: 0 4px 14px rgba(0,0,0,0.06);
+            --shadow-hover: 0 8px 24px rgba(0,0,0,0.10);
+            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+        .tx-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .tx-header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+        }
+        .tx-header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+        .tx-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .tx-logo-icon {
+            width: 36px; height: 36px;
+            background: linear-gradient(135deg, var(--primary), #6b8fc9);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 20px;
+            font-weight: 800;
+        }
+        .tx-nav {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .tx-nav a {
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: all .2s;
+            white-space: nowrap;
+        }
+        .tx-nav a:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+        .tx-search-mini {
+            display: flex;
+            align-items: center;
+            background: var(--bg);
+            border-radius: 24px;
+            padding: 4px 16px;
+            border: 1px solid var(--border);
+            gap: 8px;
+        }
+        .tx-search-mini input {
+            border: none; background: transparent; outline: none;
+            font-size: 14px; width: 140px; color: var(--text);
+        }
+        .tx-search-mini button {
+            background: var(--primary); color: #fff; border: none;
+            border-radius: 20px; padding: 6px 14px; font-size: 13px;
+            cursor: pointer; transition: background .2s;
+        }
+        .tx-search-mini button:hover { background: #3a5a8a; }
+
+        .tx-banner {
+            background: linear-gradient(135deg, #1f2a3a 0%, #2d3f5a 50%, #4a6fa5 100%);
+            color: #fff;
+            padding: 60px 0 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .tx-banner::after {
+            content: '';
+            position: absolute;
+            right: -100px; top: -80px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(224,122,95,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .tx-banner-content { position: relative; z-index: 2; max-width: 720px; }
+        .tx-banner h1 {
+            font-size: 38px;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+        .tx-banner h1 span {
+            background: linear-gradient(90deg, #e07a5f, #f2cc8f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .tx-banner p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.82);
+            margin-bottom: 6px;
+            max-width: 600px;
+        }
+        .tx-banner .tx-search-big {
+            display: flex;
+            margin-top: 24px;
+            max-width: 520px;
+            background: #fff;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+        .tx-banner .tx-search-big input {
+            flex: 1;
+            border: none;
+            padding: 14px 22px;
+            font-size: 15px;
+            outline: none;
+            color: var(--text);
+        }
+        .tx-banner .tx-search-big button {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 14px 28px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background .2s;
+        }
+        .tx-banner .tx-search-big button:hover { background: #c96a50; }
+        .tx-banner-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 22px;
+        }
+        .tx-banner-tags a {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.18);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.88);
+            transition: all .2s;
+        }
+        .tx-banner-tags a:hover {
+            background: rgba(255,255,255,0.22);
+            border-color: rgba(255,255,255,0.35);
+        }
+
+        .tx-section {
+            padding: 48px 0;
+        }
+        .tx-section-alt { background: var(--surface); }
+        .tx-section-title {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
+        }
+        .tx-section-title .tx-dot {
+            display: inline-block;
+            width: 6px; height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .tx-section-sub {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 28px;
+        }
+
+        .tx-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .tx-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .tx-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .tx-card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform .25s, box-shadow .25s;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+        .tx-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+        .tx-card-cover {
+            height: 140px;
+            background: linear-gradient(135deg, #4a6fa5, #6b8fc9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            position: relative;
+        }
+        .tx-card-cover.c2 { background: linear-gradient(135deg, #e07a5f, #f2a68a); }
+        .tx-card-cover.c3 { background: linear-gradient(135deg, #3d5a80, #5e8b9e); }
+        .tx-card-cover.c4 { background: linear-gradient(135deg, #81b29a, #a8d5ba); }
+        .tx-card-cover.c5 { background: linear-gradient(135deg, #6d597a, #9a7fa6); }
+        .tx-card-cover.c6 { background: linear-gradient(135deg, #b5651d, #d18f5a); }
+        .tx-card-cover.c7 { background: linear-gradient(135deg, #264653, #3d7a8a); }
+        .tx-card-cover.c8 { background: linear-gradient(135deg, #a4243b, #c95a6e); }
+        .tx-card-cover.c9 { background: linear-gradient(135deg, #5f6f7e, #8a9aa8); }
+        .tx-card-cover.c10 { background: linear-gradient(135deg, #2a6f97, #4a9ec9); }
+        .tx-card-body {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .tx-card-body h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .tx-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+        .tx-card-tags span {
+            font-size: 11px;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        .tx-card-body p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            flex: 1;
+        }
+        .tx-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            padding-top: 10px;
+            border-top: 1px solid var(--border);
+        }
+        .tx-card-meta .tx-score {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .tx-update-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .tx-update-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 16px;
+            background: var(--surface);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: background .2s;
+        }
+        .tx-update-item:hover { background: var(--primary-light); }
+        .tx-update-badge {
+            background: var(--primary);
+            color: #fff;
+            font-size: 12px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            white-space: nowrap;
+            font-weight: 600;
+        }
+        .tx-update-badge.hot { background: var(--accent); }
+        .tx-update-title { font-weight: 600; font-size: 15px; flex: 1; }
+        .tx-update-desc { font-size: 13px; color: var(--text-secondary); flex: 2; }
+        .tx-update-time { font-size: 12px; color: var(--text-secondary); white-space: nowrap; }
+
+        .tx-cat-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+        .tx-cat-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 18px 16px;
+            text-align: center;
+            transition: all .2s;
+            cursor: pointer;
+        }
+        .tx-cat-item:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+        .tx-cat-item strong {
+            display: block;
+            font-size: 15px;
+            margin-bottom: 4px;
+            color: var(--text);
+        }
+        .tx-cat-item span {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .tx-article {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 32px 36px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        .tx-article h2 {
+            font-size: 24px;
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+        .tx-article h3 {
+            font-size: 18px;
+            margin: 24px 0 10px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .tx-article p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            line-height: 1.8;
+        }
+        .tx-article ul {
+            margin: 12px 0 18px 20px;
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+        .tx-article ul li { margin-bottom: 6px; }
+
+        .tx-faq-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: box-shadow .2s;
+        }
+        .tx-faq-item:hover { box-shadow: var(--shadow); }
+        .tx-faq-q {
+            font-weight: 700;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text);
+        }
+        .tx-faq-q .tx-faq-icon {
+            font-size: 20px;
+            color: var(--primary);
+            transition: transform .3s;
+            font-weight: 400;
+        }
+        .tx-faq-item.open .tx-faq-icon { transform: rotate(45deg); }
+        .tx-faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .35s ease, padding .35s ease;
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.8;
+            padding: 0;
+        }
+        .tx-faq-item.open .tx-faq-a {
+            max-height: 300px;
+            padding: 14px 0 0;
+        }
+
+        .tx-comment-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .tx-comment {
+            display: flex;
+            gap: 14px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px 20px;
+        }
+        .tx-avatar {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-light), #c5d5e8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        .tx-comment-body { flex: 1; }
+        .tx-comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+        .tx-comment-name { font-weight: 600; font-size: 14px; }
+        .tx-comment-date { font-size: 12px; color: var(--text-secondary); }
+        .tx-comment-text { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+
+        .tx-news-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .tx-news-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            transition: box-shadow .2s;
+        }
+        .tx-news-card:hover { box-shadow: var(--shadow); }
+        .tx-news-card .tx-news-date {
+            font-size: 12px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .tx-news-card h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .tx-news-card p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .tx-footer {
+            background: #1a2332;
+            color: rgba(255,255,255,0.7);
+            padding: 48px 0 32px;
+            margin-top: 20px;
+        }
+        .tx-footer-inner {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        .tx-footer h4 {
+            color: #fff;
+            font-size: 15px;
+            margin-bottom: 14px;
+            font-weight: 600;
+        }
+        .tx-footer p {
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+        .tx-footer a {
+            display: block;
+            font-size: 13px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 8px;
+            transition: color .2s;
+        }
+        .tx-footer a:hover { color: #fff; }
+        .tx-footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 32px;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255,255,255,0.45);
+        }
+
+        @media (max-width: 900px) {
+            .tx-grid-4 { grid-template-columns: repeat(2, 1fr); }
+            .tx-grid-3 { grid-template-columns: repeat(2, 1fr); }
+            .tx-cat-grid { grid-template-columns: repeat(2, 1fr); }
+            .tx-footer-inner { grid-template-columns: 1fr 1fr; }
+            .tx-banner h1 { font-size: 28px; }
+            .tx-article { padding: 24px 20px; }
+            .tx-news-grid { grid-template-columns: 1fr; }
+            .tx-nav { display: none; }
+        }
+        @media (max-width: 600px) {
+            .tx-grid-4 { grid-template-columns: 1fr; }
+            .tx-grid-3 { grid-template-columns: 1fr; }
+            .tx-grid-2 { grid-template-columns: 1fr; }
+            .tx-cat-grid { grid-template-columns: 1fr 1fr; }
+            .tx-footer-inner { grid-template-columns: 1fr; }
+            .tx-banner h1 { font-size: 24px; }
+            .tx-update-item { flex-wrap: wrap; gap: 8px; }
+            .tx-update-desc { flex-basis: 100%; }
+            .tx-search-mini { display: none; }
+            .tx-banner .tx-search-big { max-width: 100%; }
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<header class="tx-header">
+    <div class="tx-container tx-header-inner">
+        <a href="/" class="tx-logo">
+            <span class="tx-logo-icon">糖</span>
+            糖心影院
+        </a>
+        <nav class="tx-nav">
+            <a href="/#tx-hot">热门推荐</a>
+            <a href="/#tx-update">最新更新</a>
+            <a href="/#tx-category">分类浏览</a>
+            <a href="/#tx-deep">深度解析</a>
+            <a href="/#tx-faq">常见问题</a>
+            <a href="/#tx-comment">用户评论</a>
+            <a href="/#tx-news">影视资讯</a>
+        </nav>
+        <div class="tx-search-mini">
+            <input type="text" placeholder="搜索影片、剧集…">
+            <button>搜索</button>
+        </div>
+    </div>
+</header>
+
+<!-- 首屏 Banner -->
+<section class="tx-banner" id="tx-home">
+    <div class="tx-container tx-banner-content">
+        <h1>糖心影院 · <span>发现好片，追踪热剧</span></h1>
+        <p>一个为影视爱好者搭建的内容推荐与追踪平台。涵盖电影、剧集、短剧、综艺与纪录片，</p>
+        <p>提供分类筛选、更新日历、深度解析与真实用户口碑，帮你快速锁定下一部想看的内容。</p>
+        <div class="tx-search-big">
+            <input type="text" placeholder="输入片名、演员或类型，例如：悬疑剧、科幻电影…">
+            <button>立即搜索</button>
+        </div>
+        <div class="tx-banner-tags">
+            <a href="/#tx-hot">热门电影</a>
+            <a href="/#tx-hot">高分剧集</a>
+            <a href="/#tx-update">今日更新</a>
+            <a href="/#tx-category">短剧专区</a>
+            <a href="/#tx-category">综艺推荐</a>
+            <a href="/#tx-deep">悬疑解析</a>
+            <a href="/#tx-news">行业动态</a>
+            <a href="/#tx-faq">观看指南</a>
+            <a href="/#tx-comment">影迷讨论</a>
+        </div>
+    </div>
+</section>
+
+<!-- 内容简介 -->
+<section class="tx-section" id="tx-intro">
+    <div class="tx-container">
+        <h2 class="tx-section-title"><span class="tx-dot"></span>关于糖心影院</h2>
+        <p class="tx-section-sub">影视内容聚合与推荐 · 面向追剧人和影迷的内容导航</p>
+        <div class="tx-article">
+            <p>糖心影院是一个围绕影视内容消费场景构建的推荐与导航页面，面向喜欢电影、剧集、短剧、综艺和纪录片的观众。无论你是想找一部高口碑电影度过周末，还是想追踪正在热播的剧集更新节奏，或者想了解某类题材的深度解析，这里都提供清晰的入口和参考信息。</p>
+            <p>页面聚合了热门推荐、最新更新、分类浏览、深度解析、常见问题与用户评论等多个板块，目的不是单纯罗列片名，而是帮助观众在有限的时间里做出更合适的选择。我们关注不同类型作品的特点、适合人群、观看顺序以及同类比较，让“看什么”和“怎么看”都有据可循。</p>
+            <p>如果你是刚接触影视推荐的用户，可以从「热门推荐」和「最新更新」开始浏览，快速建立对当前内容市场的感知；如果你有明确的类型偏好，可以通过「分类浏览」直接进入对应专区；如果你喜欢先了解背景再做决定，「深度解析」和「常见问题」提供了更细致的分析。所有板块均可通过顶部导航或页面内锚点快速到达，适合收藏后反复查阅。</p>
+        </div>
+    </div>
+</section>
+
+<!-- 热门内容推荐 -->
+<section class="tx-section tx-section-alt" id="tx-hot">
+    <div class="tx-container">
+        <h2 class="tx-section-title"><span class="tx-dot"></span>热门内容推荐</h2>
+        <p class="tx-section-sub">近期关注度较高的影视作品与内容专题，按口碑与讨论热度综合整理</p>
+        <div class="tx-grid-4">
+            <div class="tx-card">
+                <div class="tx-card-cover">迷雾追踪</div>
+                <div class="tx-card-body">
+                    <h3>迷雾追踪</h3>
+                    <div class="tx-card-tags"><span>悬疑</span><span>刑侦</span><span>2026</span></div>
+                    <p>一桩跨越十年的旧案重新浮出水面，刑警与嫌疑人之间的心理博弈层层递进，节奏紧凑不拖沓。</p>
+                    <div class="tx-card-meta"><span class="tx-score">9.2分</span><span>更新至12集</span></div>
+                </div>
+            </div>
+            <div class="tx-card">
+                <div class="tx-card-cover c2">夏日回声</div>
+                <div class="tx-card-body">
+                    <h3>夏日回声</h3>
+                    <div class="tx-card-tags"><span>青春</span><span>治愈</span><span>电影</span></div>
+                    <p>海边小镇的最后一个夏天，两个少年在告别中学会成长。画面干净，情绪克制，适合安静观看。</p>
+                    <div class="tx-card-meta"><span class="tx-score">8.7分</span><span>已上线</span></div>
+                </div>
+            </div>
+            <div class="tx-card">
+                <div class="tx-card-cover c3">暗河</div>
+                <div class="tx-card-body">
+                    <h3>暗河</h3>
+                    <div class="tx-card-tags"><span>犯罪</span><span>短剧</span><span>强节奏</span></div>
+                    <p>每集15分钟的高密度短剧，围绕一起地下交易展开。反转密集，适合碎片时间一口气刷完。</p>
+                    <div class="tx-card-meta"><span class="tx-score">8.9分</span><span>全24集</span></div>
+                </div>
+            </div>
+            <div class="tx-card">
+                <div class="tx-card-cover c4">山野食光</div>
+                <div class="tx-card-body">
+                    <h3>山野食光</h3>
+                    <div class="tx-card-tags"><span>纪录片</span><span>美食</span><span>人文</span></div>
+                    <p>镜头跟随三位乡厨走过四季，记录食材从土地到餐桌的过程。节奏舒缓，适合下饭或睡前观看。</p>
+                    <div class="tx-card-meta"><span class="tx-score">9.0分</span><span>全8集</span></div>
+                </div>
+            </div>
+            <div class="tx-card">
+                <div class="tx-card-cover c5">星轨之外</div>
+                <div class="tx-card-body">
+                    <h3>星轨之外</h3>
+                    <div class="tx-card-tags"><span>科幻</span><span>剧集</span><span>太空</span></div>
+                    <p>一支深空探测队意外失联，地面站试图重建通讯。硬核设定与情感线并行，科幻迷不容错过。</p>
+                    <div class="tx-card-meta"><span class="tx-score">8.5分</span><span>更新至6集</span></div>
+                </div>
+            </div>
+            <div class="tx-card">
+                <div class="tx-card-cover c6">笑场</div>
+                <div class="tx-card-body">
+                    <h3>笑场</h3>
+                    <div class="tx-card-tags"><span>综艺</span><span>喜剧</span><span>竞技</span></div>
+                    <p>新老喜剧人同台竞技，赛制紧凑，每期都有意外爆梗。适合周末放松，不用动脑也能看得开心。</p>
+                    <div class="tx-card-meta"><span class="tx-score">8.3分</span><span>每周五更新</span></div>
+                </div>
+            </div>
+            <div class="tx-card">
+                <div class="tx-card-cover c7">第七码头</div>
+                <div class="tx-card-body">
+                    <h3>第七码头</h3>
+                    <div class="tx-card-tags"><span>悬疑</span><span>电影</span><span>反转</span></div>
+                    <p>码头调度员无意间卷入走私案，所有证据都指向他。剧本扎实，结尾三十分钟连续反转。</p>
+                    <div class="tx-card-meta"><span class="tx-score">8.8分</span><span>已上线</span></div>
+                </div>
+            </div>
+            <div class="tx-card">
+                <div class="tx-card-cover c8">她的名字</div>
+                <div class="tx-card-body">
+                    <h3>她的名字</h3>
+                    <div class="tx-card-tags"><span>剧情</span><span>女性</span><span>短剧</span></div>
+                    <p>三个不同年龄的女性在同一栋写字楼里交错的人生。台词细腻，情感真实，适合慢慢看。</p>
+                    <div class="tx-card-meta"><span class="tx-score">8.6分</span><span>全16集</span></div>
+                </div>
+            </div>
+            <div class="tx-card">
+                <div class="tx-card-cover c9">旧日档案</div>
+                <div class="tx-card-body">
+                    <h3>旧日档案</h3>
+                    <div class="tx-card-tags"><span>历史</span><span>纪录片</span><span>档案</span></div>
+                    <p>以尘封档案为线索，还原一段被遗忘的城市史。影像资料珍贵，叙述克制，信息密度高。</p>
+                    <div class="tx-card-meta"><span class="tx-score">9.1分</span><span>全6集</span></div>
+                </div>
+            </div>
+            <div class="tx-card">
+                <div class="tx-card-cover c10">风暴眼</div>
+                <div class="tx-card-body">
+                    <h3>风暴眼</h3>
+                    <div class="tx-card-tags"><span>灾难</span><span>电影</span><span>大场面</span></div>
+                    <p>超强台风登陆前的72小时，多个家庭在撤离与留守之间做出选择。群像叙事，节奏紧张。</p>
+                    <div class="tx-card-meta"><span class="tx-score">8.4分</span><span>已上线</span></div>
+                </div>
+            </div>
+            <div class="tx-card">
+                <div class="tx-card-cover">无声证词</div>
+                <div class="tx-card-body">
+                    <h3>无声证词</h3>
+                    <div class="tx-card-tags"><span>律政</span><span>剧集</span><span>法庭</span></div>
+                    <p>一位失聪律师为底层当事人辩护，案件背后牵出更大的利益链。法庭戏扎实，配角表现亮眼。</p>
+                    <div class="tx-card-meta"><span class="tx-score">8.7分</span><span>更新至10集</span></div>
+                </div>
+            </div>
+            <div class="tx-card">
+                <div class="tx-card-cover c2">慢生活提案</div>
+                <div class="tx-card-body">
+                    <h3>慢生活提案</h3>
+                    <div class="tx-card-tags"><span>慢综艺</span><span>生活</span><span>治愈</span></div>
+                    <p>几位嘉宾在乡村小院度过一周，做饭、聊天、发呆。没有任务卡，节奏舒缓，适合配饭。</p>
+                    <div class="tx-card-meta"><span class="tx-score">8.2分</span><span>全10期</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 最新更新 -->
+<section class="tx-section" id="tx-update">
+    <div class="tx-container">
+        <h2 class="tx-section-title"><span class="tx-dot"></span>最新更新与热播动态</h2>
+        <p class="tx-section-sub">截至2026年11月7日 · 近期上线、更新与热播提醒</p>
+        <div class="tx-update-list">
+            <div class="tx-update-item">
+                <span class="tx-update-badge hot">热播</span>
+                <span class="tx-update-title">迷雾追踪</span>
+                <span class="tx-update-desc">第12集上线，旧案关键证人现身，主角面临信任危机</span>
+                <span class="tx-update-time">11月7日</span>
+            </div>
+            <div class="tx-update-item">
+                <span class="tx-update-badge">新剧</span>
+                <span class="tx-update-title">无声证词</span>
+                <span class="tx-update-desc">第10集更新，法庭交叉询问进入白热化阶段</span>
+                <span class="tx-update-time">11月6日</span>
+            </div>
+            <div class="tx-update-item">
+                <span class="tx-update-badge">电影</span>
+                <span class="tx-update-title">第七码头</span>
+                <span class="tx-update-desc">正式上线，悬疑片爱好者讨论度持续走高</span>
+                <span class="tx-update-time">11月5日</span>
+            </div>
+            <div class="tx-update-item">
+                <span class="tx-update-badge hot">短剧</span>
+                <span class="tx-update-title">暗河</span>
+                <span class="tx-update-desc">全24集一次性放出，反转剧情引发社交平台讨论</span>
+                <span class="tx-update-time">11月4日</span>
+            </div>
+            <div class="tx-update-item">
+                <span class="tx-update-badge">综艺</span>
+                <span class="tx-update-title">笑场</span>
+                <span class="tx-update-desc">第7期上线，新嘉宾加入带来全新赛制变化</span>
+                <span class="tx-update-time">11月3日</span>
+            </div>
+            <div class="tx-update-item">
+                <span class="tx-update-badge">纪录片</span>
+                <span class="tx-update-title">山野食光</span>
+                <span class="tx-update-desc">第8集收官，四季食材故事完整呈现</span>
+                <span class="tx-update-time">11月2日</span>
+            </div>
+            <div class="tx-update-item">
+                <span class="tx-update-badge">剧集</span>
+                <span class="tx-update-title">星轨之外</span>
+                <span class="tx-update-desc">第6集更新，地面站收到异常信号，剧情进入新阶段</span>
+                <span class="tx-update-time">11月1日</span>
+            </div>
+            <div class="tx-update-item">
+                <span class="tx-update-badge">电影</span>
+                <span class="tx-update-title">夏日回声</span>
+                <span class="tx-update-desc">上线满一周，口碑稳定在8.7分，治愈系观众推荐</span>
+                <span class="tx-update-time">10月31日</span>
+            </div>
+            <div class="tx-update-item">
+                <span class="tx-update-badge">短剧</span>
+                <span class="tx-update-title">她的名字</span>
+                <span class="tx-update-desc">全16集上线，女性题材短剧再添一部讨论度作品</span>
+                <span class="tx-update-time">10月30日</span>
+            </div>
+            <div class="tx-update-item">
+                <span class="tx-update-badge hot">热播</span>
+                <span class="tx-update-title">风暴眼</span>
+                <span class="tx-update-desc">灾难片上线第二周，特效场面成为观众讨论焦点</span>
+                <span class="tx-update-time">10月29日</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 分类入口 -->
+<section class="tx-section tx-section-alt" id="tx-category">
+    <div class="tx-container">
+        <h2 class="tx-section-title"><span class="tx-dot"></span>分类浏览</h2>
+        <p class="tx-section-sub">按内容类型快速进入，找到你偏好的那一类</p>
+        <div class="tx-cat-grid">
+            <div class="tx-cat-item">
+                <strong>电影</strong>
+                <span>剧情 · 悬疑 · 科幻</span>
+            </div>
+            <div class="tx-cat-item">
+                <strong>剧集</strong>
+                <span>连续剧 · 迷你剧</span>
+            </div>
+            <div class="tx-cat-item">
+                <strong>短剧</strong>
+                <span>强节奏 · 碎片时间</span>
+            </div>
+            <div class="tx-cat-item">
+                <strong>综艺</strong>
+                <span>喜剧 · 慢综艺 · 竞技</span>
+            </div>
+            <div class="tx-cat-item">
+                <strong>纪录片</strong>
+                <span>人文 · 自然 · 历史</span>
+            </div>
+            <div class="tx-cat-item">
+                <strong>悬疑专区</strong>
+                <span>推理 · 犯罪 · 反转</span>
+            </div>
+            <div class="tx-cat-item">
+                <strong>治愈专区</strong>
+                <span>青春 · 生活 · 温情</span>
+            </div>
+            <div class="tx-cat-item">
+                <strong>高分精选</strong>
+                <span>口碑 · 评分 · 编辑推荐</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 深度解析正文 -->
+<section class="tx-section" id="tx-deep">
+    <div class="tx-container">
+        <h2 class="tx-section-title"><span class="tx-dot"></span>深度解析：如何高效挑选一部值得看的内容</h2>
+        <p class="tx-section-sub">从类型、节奏、适合人群到同类比较，帮你建立自己的选片逻辑</p>
+        <div class="tx-article">
+            <h2>影视内容消费中的选择策略</h2>
+            <p>面对海量的影视内容，观众最常遇到的困难不是“没得看”，而是“不知道看什么”。糖心影院在做的事情，是把不同类型、不同节奏、不同受众的作品进行梳理和归类，让搜索和浏览的过程更有方向感。以下从几个关键维度展开，帮助你在短时间内做出判断。</p>
+
+            <h3>一、先看类型，再看节奏</h3>
+            <p>类型决定你大概会看到什么样的故事，节奏决定你适不适合在当前状态下观看。悬疑和犯罪类作品通常需要较高的注意力，适合完整的时间段；治愈系电影和慢综艺则对注意力要求较低，可以边做别的事边看。短剧的节奏密度最高，单集时间短但信息量大，适合通勤或碎片时间。糖心影院在推荐卡片中标注了类型标签和更新状态，目的就是让观众在点开之前就能对节奏有基本预期。</p>
+
+            <h3>二、关注更新状态与完播情况</h3>
+            <p>连载中的剧集和已完结作品在消费体验上有明显差异。连载剧需要等待更新，适合喜欢追更、参与讨论的观众；已完结作品可以一口气看完，适合不喜欢断点的观众。本页的「最新更新」板块会标注作品的更新进度，比如“更新至12集”或“全24集”，方便你根据自己的习惯做选择。如果你打算追连载剧，建议先看两到三集判断是否合口味，再决定是否投入时间。</p>
+
+            <h3>三、利用评分和评论做交叉参考</h3>
+            <p>评分是快速筛选的工具，但不是唯一标准。糖心影院在推荐卡片中展示的评分，参考了多个平台的综合评价和用户讨论热度。更值得关注的是评论区的具体反馈——有人在意剧情逻辑，有人在意画面质感，有人在意角色塑造。不同观众的关注点不同，你可以根据自己的偏好去匹配对应的评论类型。本页「用户评论」板块收录了近期观众的真实反馈，涵盖推荐、吐槽、期待更新等不同语气，帮助你看到更立体的评价。</p>
+
+            <h3>四、同类比较：找到适合你的那一部</h3>
+            <p>如果你喜欢悬疑题材，本页推荐中的《迷雾追踪》偏向心理博弈和人物关系，《第七码头》更注重剧本结构和反转设计，《暗河》则以短剧形式呈现高密度叙事。三部作品都属于悬疑大类，但消费体验差异明显。类似地，治愈系内容中，《夏日回声》是电影体量的青春故事，《山野食光》是纪录片节奏的生活观察，《慢生活提案》是综艺形式的放松陪伴。根据自己的时间和心情选择对应的载体，比单纯看评分更有效。</p>
+
+            <h3>五、搜索“糖心影院”的人通常在找什么</h3>
+            <p>从搜索意图来看，关注糖心影院的用户通常希望快速了解当前有哪些值得看的影视内容、某个类型下有哪些高口碑作品、某部剧的更新节奏如何、以及在哪里能找到清晰的分类入口。本页的模块设计围绕这些需求展开：首屏提供搜索和热门标签，中部提供分类和推荐卡片，后部提供深度解析、常见问题和用户评论。所有信息以静态页面的形式呈现，打开速度快，适合收藏后随时查阅。</p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="tx-section tx-section-alt" id="tx-faq">
+    <div class="tx-container">
+        <h2 class="tx-section-title"><span class="tx-dot"></span>常见问题</h2>
+        <p class="tx-section-sub">关于内容选择、观看顺序与更新节奏的常见疑问</p>
+        <div class="tx-faq-item open">
+            <div class="tx-faq-q">糖心影院主要推荐什么类型的内容？<span class="tx-faq-icon">+</span></div>
+            <div class="tx-faq-a">糖心影院覆盖电影、剧集、短剧、综艺和纪录片五大类，侧重悬疑、治愈、科幻、犯罪、人文等题材。页面按类型和热度进行组织，同时提供深度解析和用户评论作为参考。无论你是想找一部下饭综艺、一部周末电影，还是一部适合通勤时刷的短剧，都可以从分类入口进入对应专区。</div>
+        </div>
+        <div class="tx-faq-item">
+            <div class="tx-faq-q">想追一部正在更新的剧，应该从哪里开始看？<span class="tx-faq-icon">+</span></div>
+            <div class="tx-faq-a">建议先浏览「最新更新」板块，了解当前有哪些剧集在更新以及更新进度。选中感兴趣的作品后，可以先看前两到三集判断节奏和风格是否适合自己。如果你喜欢参与讨论、享受等待和猜测剧情的过程，追连载剧会比较有乐趣；如果更习惯一口气看完，可以等完结后再进入。</div>
+        </div>
+        <div class="tx-faq-item">
+            <div class="tx-faq-q">短剧和常规剧集在观看体验上有什么区别？<span class="tx-faq-icon">+</span></div>
+            <div class="tx-faq-a">短剧单集时长通常在10到20分钟之间，叙事密度高，反转和冲突更集中，适合碎片时间观看。常规剧集单集40到60分钟，人物关系和情节铺陈更充分，适合有完整时间段的观众。两者各有优势，可以根据当天的时间安排灵活选择。本页推荐中的《暗河》和《她的名字》都属于短剧类型，可以作为入门参考。</div>
+        </div>
+        <div class="tx-faq-item">
+            <div class="tx-faq-q">评分高的作品一定适合自己吗？<span class="tx-faq-icon">+</span></div>
+            <div class="tx-faq-a">不一定。评分反映的是整体口碑，但每个人的偏好差异很大。有人喜欢快节奏强反转，有人喜欢慢节奏重氛围，同一部作品在不同观众那里的体验可能完全不同。建议把评分作为筛选的起点，再结合类型标签、剧情简介和用户评论中的具体描述做判断。本页的评论板块收录了不同角度的反馈，可以帮助你看到评分之外的细节。</div>
+        </div>
+        <div class="tx-faq-item">
+            <div class="tx-faq-q">如何快速找到某一类题材的作品？<span class="tx-faq-icon">+</span></div>
+            <div class="tx-faq-a">页面中部的「分类浏览」板块提供了按内容类型和题材划分的快捷入口，包括电影、剧集、短剧、综艺、纪录片以及悬疑、治愈、高分精选等专区。点击对应入口即可跳转到相关区域。顶部导航栏也提供了热门推荐、最新更新、深度解析等模块的快速跳转，适合已有明确浏览目标的用户。</div>
+        </div>
+        <div class="tx-faq-item">
+            <div class="tx-faq-q">页面上的更新信息多久同步一次？<span class="tx-faq-icon">+</span></div>
+            <div class="tx-faq-a">本页的更新信息以静态内容形式呈现，反映的是截至2026年11月7日的近期动态。由于页面定位为内容导航与推荐参考，具体更新进度建议以实际观看平台的显示为准。我们会根据内容消费趋势和用户关注点定期调整推荐列表和资讯内容，保持页面信息的参考价值。</div>
+        </div>
+    </div>
+</section>
+
+<!-- 用户评论 -->
+<section class="tx-section" id="tx-comment">
+    <div class="tx-container">
+        <h2 class="tx-section-title"><span class="tx-dot"></span>用户评论</h2>
+        <p class="tx-section-sub">近期观众反馈 · 涵盖推荐、讨论与不同角度的评价</p>
+        <div class="tx-comment-list">
+            <div class="tx-comment">
+                <div class="tx-avatar">林</div>
+                <div class="tx-comment-body">
+                    <div class="tx-comment-header"><span class="tx-comment-name">林间有风</span><span class="tx-comment-date">11月6日</span></div>
+                    <div class="tx-comment-text">《迷雾追踪》看到第12集，节奏确实稳，没有为了反转而反转。老刑警的表演很克制，加分。</div>
+                </div>
+            </div>
+            <div class="tx-comment">
+                <div class="tx-avatar">陈</div>
+                <div class="tx-comment-body">
+                    <div class="tx-comment-header"><span class="tx-comment-name">陈默不沉默</span><span class="tx-comment-date">11月6日</span></div>
+                    <div class="tx-comment-text">暗河刷完了，短剧能做到这个密度不容易。虽然有些情节经不起细想，但通勤路上看很过瘾。</div>
+                </div>
+            </div>
+            <div class="tx-comment">
+                <div class="tx-avatar">苏</div>
+                <div class="tx-comment-body">
+                    <div class="tx-comment-header"><span class="tx-comment-name">苏打绿_</span><span class="tx-comment-date">11月5日</span></div>
+                    <div class="tx-comment-text">夏日回声的画面真的很舒服，海边的色调调得很好。剧情偏淡，喜欢强情节的可能不适合。</div>
+                </div>
+            </div>
+            <div class="tx-comment">
+                <div class="tx-avatar">周</div>
+                <div class="tx-comment-body">
+                    <div class="tx-comment-header"><span class="tx-comment-name">周周看片</span><span class="tx-comment-date">11月5日</span></div>
+                    <div class="tx-comment-text">山野食光适合吃饭的时候放，没有刻意煽情，就是老老实实拍做饭和吃饭，反而看得进去。</div>
+                </div>
+            </div>
+            <div class="tx-comment">
+                <div class="tx-avatar">吴</div>
+                <div class="tx-comment-body">
+                    <div class="tx-comment-header"><span class="tx-comment-name">吴聊电影</span><span class="tx-comment-date">11月4日</span></div>
+                    <div class="tx-comment-text">第七码头的反转确实没想到，但前半段有点慢，差点弃了。坚持到后半段就值了。</div>
+                </div>
+            </div>
+            <div class="tx-comment">
+                <div class="tx-avatar">郑</div>
+                <div class="tx-comment-body">
+                    <div class="tx-comment-header"><span class="tx-comment-name">郑在追剧</span><span class="tx-comment-date">11月4日</span></div>
+                    <div class="tx-comment-text">无声证词的法庭戏拍得不错，配角比主角还出彩。希望后面别烂尾，律政剧太容易高开低走了。</div>
+                </div>
+            </div>
+            <div class="tx-comment">
+                <div class="tx-avatar">何</div>
+                <div class="tx-comment-body">
+                    <div class="tx-comment-header"><span class="tx-comment-name">何以为家</span><span class="tx-comment-date">11月3日</span></div>
+                    <div class="tx-comment-text">笑场第七期新赛制有点乱，剪辑跳来跳去的。不过有几个段子确实好笑，下饭还是可以的。</div>
+                </div>
+            </div>
+            <div class="tx-comment">
+                <div class="tx-avatar">沈</div>
+                <div class="tx-comment-body">
+                    <div class="tx-comment-header"><span class="tx-comment-name">沈小满</span><span class="tx-comment-date">11月3日</span></div>
+                    <div class="tx-comment-text">她的名字太适合女生看了，三个年龄段的困境都很真实。就是结尾收得有点急，感觉可以再展开一点。</div>
+                </div>
+            </div>
+            <div class="tx-comment">
+                <div class="tx-avatar">陆</div>
+                <div class="tx-comment-body">
+                    <div class="tx-comment-header"><span class="tx-comment-name">陆仁甲</span><span class="tx-comment-date">11月2日</span></div>
+                    <div class="tx-comment-text">星轨之外的设定挺硬的，但感情线有点拖。科幻迷可以看，想看快节奏的可能会觉得闷。</div>
+                </div>
+            </div>
+            <div class="tx-comment">
+                <div class="tx-avatar">许</div>
+                <div class="tx-comment-body">
+                    <div class="tx-comment-header"><span class="tx-comment-name">许愿树下</span><span class="tx-comment-date">11月2日</span></div>
+                    <div class="tx-comment-text">旧日档案这种纪录片太少了，资料扎实，旁白也不煽情。希望多出几部类似的历史题材。</div>
+                </div>
+            </div>
+            <div class="tx-comment">
+                <div class="tx-avatar">张</div>
+                <div class="tx-comment-body">
+                    <div class="tx-comment-header"><span class="tx-comment-name">张弛有度</span><span class="tx-comment-date">11月1日</span></div>
+                    <div class="tx-comment-text">风暴眼的特效在国产灾难片里算不错了，但人物线太多了，好几个角色没展开就结束了。</div>
+                </div>
+            </div>
+            <div class="tx-comment">
+                <div class="tx-avatar">王</div>
+                <div class="tx-comment-body">
+                    <div class="tx-comment-header"><span class="tx-comment-name">王二狗看片</span><span class="tx-comment-date">11月1日</span></div>
+                    <div class="tx-comment-text">慢生活提案是我的睡前固定节目，看他们做饭聊天就觉得很放松。不需要动脑，挺好的。</div>
+                </div>
+            </div>
+            <div class="tx-comment">
+                <div class="tx-avatar">李</div>
+                <div class="tx-comment-body">
+                    <div class="tx-comment-header"><span class="tx-comment-name">李慢慢</span><span class="tx-comment-date">10月31日</span></div>
+                    <div class="tx-comment-text">这个页面的分类挺清楚的，找短剧和纪录片很方便。希望能再加一个按评分排序的功能。</div>
+                </div>
+            </div>
+            <div class="tx-comment">
+                <div class="tx-avatar">赵</div>
+                <div class="tx-comment-body">
+                    <div class="tx-comment-header"><span class="tx-comment-name">赵小刀</span><span class="tx-comment-date">10月30日</span></div>
+                    <div class="tx-comment-text">暗河的反转虽然多，但有些地方逻辑不太顺。不过作为短剧，娱乐性够了，不用太较真。</div>
+                </div>
+            </div>
+            <div class="tx-comment">
+                <div class="tx-avatar">孙</div>
+                <div class="tx-comment-body">
+                    <div class="tx-comment-header"><span class="tx-comment-name">孙悟饭</span><span class="tx-comment-date">10月30日</span></div>
+                    <div class="tx-comment-text">迷雾追踪的配乐很加分，尤其是雨夜那场戏。剧情稳扎稳打，希望结局别拉胯。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 相关资讯 -->
+<section class="tx-section tx-section-alt" id="tx-news">
+    <div class="tx-container">
+        <h2 class="tx-section-title"><span class="tx-dot"></span>相关影视资讯</h2>
+        <p class="tx-section-sub">近期内容动态与行业观察</p>
+        <div class="tx-news-grid">
+            <div class="tx-news-card">
+                <div class="tx-news-date">2026年11月6日</div>
+                <h4>悬疑短剧热度持续走高，单集节奏成为讨论焦点</h4>
+                <p>近期多部悬疑题材短剧上线，观众对单集信息密度和反转频率的讨论明显增多。与常规剧集相比，短剧在叙事节奏上的差异正在成为内容选择的重要参考维度。</p>
+            </div>
+            <div class="tx-news-card">
+                <div class="tx-news-date">2026年11月5日</div>
+                <h4>治愈系纪录片回潮，慢节奏内容找到稳定受众</h4>
+                <p>以美食、生活、自然为主题的纪录片近期关注度回升。这类内容不依赖强情节，靠画面质感和情绪氛围留住观众，在下饭和睡前场景中具有稳定的消费需求。</p>
+            </div>
+            <div class="tx-news-card">
+                <div class="tx-news-date">2026年11月4日</div>
+                <h4>律政题材剧集集中上线，法庭戏表现成为口碑分水岭</h4>
+                <p>多部律政剧在近期播出，观众对法庭戏的专业度和节奏要求明显提高。配角表现和案件设计成为评论区讨论的高频关键词，部分作品因案件质量参差引发争议。</p>
+            </div>
+            <div class="tx-news-card">
+                <div class="tx-news-date">2026年11月3日</div>
+                <h4>喜剧综艺赛制调整，新老阵容混搭带来新鲜感</h4>
+                <p>喜剧竞技类综艺在最新一期调整了赛制，新嘉宾的加入改变了原有的竞争格局。观众反馈中既有对新鲜感的认可，也有对剪辑节奏的讨论。</p>
+            </div>
+            <div class="tx-news-card">
+                <div class="tx-news-date">2026年11月2日</div>
+                <h4>科幻剧集受众扩大，硬核设定与情感线的平衡受关注</h4>
+                <p>近期上线的科幻剧集在设定严谨度上有所提升，但观众对感情线的篇幅和节奏仍有不同意见。如何在硬核设定与大众观看门槛之间找到平衡，是这类作品持续面临的课题。</p>
+            </div>
+            <div class="tx-news-card">
+                <div class="tx-news-date">2026年11月1日</div>
+                <h4>女性题材短剧引发讨论，真实感成为评价关键词</h4>
+                <p>以女性视角展开的短剧近期在社交平台引发讨论，观众对人物处境和台词真实感的关注超过了对反转设计的期待。这类内容在情感共鸣上的优势正在被更多创作者重视。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="tx-footer">
+    <div class="tx-container">
+        <div class="tx-footer-inner">
+            <div>
+                <h4>糖心影院</h4>
+                <p>影视内容聚合与推荐页面，提供热门电影、剧集、短剧、综艺和纪录片的分类导航、更新动态与深度解析。内容以参考和导航为目的，帮助观众更高效地选择观看内容。</p>
+                <p style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.4);">本站为静态内容页面，所有推荐信息仅供参考，具体观看请以实际平台为准。</p>
+            </div>
+            <div>
+                <h4>快速导航</h4>
+                <a href="/#tx-hot">热门推荐</a>
+                <a href="/#tx-update">最新更新</a>
+                <a href="/#tx-category">分类浏览</a>
+                <a href="/#tx-deep">深度解析</a>
+            </div>
+            <div>
+                <h4>内容专区</h4>
+                <a href="/#tx-hot">悬疑专区</a>
+                <a href="/#tx-hot">治愈专区</a>
+                <a href="/#tx-hot">高分精选</a>
+                <a href="/#tx-category">短剧专区</a>
+            </div>
+            <div>
+                <h4>帮助与反馈</h4>
+                <a href="/#tx-faq">常见问题</a>
+                <a href="/#tx-comment">用户评论</a>
+                <a href="/#tx-news">影视资讯</a>
+                <a href="/#tx-intro">关于本站</a>
+            </div>
+        </div>
+        <div class="tx-footer-bottom">
+            © 2026 糖心影院 · 内容推荐与导航页面 · 友情链接：影视分类导航 | 热播追踪 | 观影指南
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.querySelectorAll('.tx-faq-item').forEach(function(item) {
+        item.addEventListener('click', function() {
+            this.classList.toggle('open');
+        });
+    });
+</script>
+
+</body>
+  </html>
